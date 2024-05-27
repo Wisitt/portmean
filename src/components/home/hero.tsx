@@ -1,135 +1,81 @@
-import styled from "styled-components";
-import {
-  Subtract,
-  NameMean,
-  Smile,
-  TextMeanLeft,
-  Star,
-} from "../../../public/icon/fistmean";
+import { useEffect, useState } from "react";
+
+import { Saimaii, Star } from "../../../public/icon/fistmean";
+import emptyNichakarnCard from "../../assets/empty-nichakarn-card.jpg";
+import emptySmileCard from "../../assets/empty-smile-card.jpg";
+import nichakarnCard from "../../assets/nichakarn-card.jpg";
+import smileCard from "../../assets/smile-card.jpg";
+import Subtract from "../icons/subtract";
 
 const Hero = () => {
+  const [isNichakarnCardHovered, setIsNichakarnCardHovered] = useState(false);
+  const [isSmileCardHovered, setIsSmileCardHovered] = useState(false);
+
+  const preloadImages = () => {
+    const images = [nichakarnCard.src, smileCard.src];
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  };
+
+  useEffect(() => {
+    preloadImages();
+  }, []);
+
   return (
-    <section className="flex flex-col md:flex-row sm:justify-center w-full h-screen bg-[#6E2D27] md:p-10">
-      <div className="flex flex-col md:flex-row justify-start w-full lg:w-1/2 md:w-full md:p-10 sm:mt-40">
-        <Subtract className="hidden md:block absolute left-0 top-40 max-w-[808.8px] max-h-[606.48px]" />
-        <div className="relative w-full">
-          <MainContainer className="absolute">
-            <PolaroidFrame>
-              <InnerFrame>
-                <PictureFrame />
-                <NameMean />
-              </InnerFrame>
-            </PolaroidFrame>
-          </MainContainer>
-          <MainContainer className="second-container absolute">
-            <PolaroidFrame>
-              <InnerFrame>
-                <PictureFrame className="second-picture-frame" />
-                <Smile />
-              </InnerFrame>
-            </PolaroidFrame>
-          </MainContainer>
-        </div>
-      </div>
-      <div className="flex justify-center w-full lg:w-1/2 p-10 lg:h-[93vh] sm:h-[40vh] relative md:hidden sm:hidden lg:inline">
-        <div
-          className="flex flex-col items-start sm:h-full text-4xl md:text-7xl  bottom-10 left-5 md:bottom-20 md:left-10 font-bold  p-[2.5rem]"
-          style={{ justifyContent: "space-between" }}
-        >
-          <div className="w-[30vw] ">
-            <div className="flex items-start mt-10 justify-end">
-              <TextMeanLeft className="w-[50px] h-[50px]" />
-              <Star className="w-8 h-8 md:w-[50px] md:h-[50px]" />
-            </div>
-            <div className="flex lg:items-start md:items-center mt-10 justify-start">
-              <Star className="w-20 h-20 md:w-[180px] md:h-[180px]" />
-              <Star className="w-8 h-8 md:w-[50px] md:h-[50px]" />
-            </div>
+    <section className="h-svh bg-primary overflow-hidden pt-[calc(68px+2.5rem)] md:pt-[calc(68px+5rem)] pb-10 md:pb-20 px-4">
+      <div className="max-w-[1520px] h-full mx-auto flex flex-col gap-10 xl:gap-0 xl:flex-row">
+        <div className="xl:w-[40%] xl:pt-16 flex xl:justify-center xl:block relative">
+          <div className="absolute -left-24 xl:-left-52 top-0">
+            <Subtract />
           </div>
-          <h1 className="text-7xl">NICHAKARN SOONTORNSUTEEWONG</h1>
-          {/* <Star className="ml-3 w-10 h-10 md:w-[71px] md:h-[71px]" /> */}
+          <div className="relative">
+            <div
+              onMouseEnter={() => setIsNichakarnCardHovered(true)}
+              onMouseLeave={() => setIsNichakarnCardHovered(false)}
+              className={`relative z-10 rounded-[10px] w-[calc(383px*0.75)] md:w-[calc(383px*0.9)] xl:w-[383px] bg-no-repeat aspect-[3/3.7] md:hover:-rotate-3 transition-[transform_background] duration-200 ${isSmileCardHovered ? "md:-rotate-3" : ""}`}
+              style={{
+                backgroundImage: `url(${
+                  isNichakarnCardHovered
+                    ? nichakarnCard.src
+                    : emptyNichakarnCard.src
+                })`,
+                backgroundSize: "100% 100%",
+              }}
+            />
+            <div
+              onMouseEnter={() => setIsSmileCardHovered(true)}
+              onMouseLeave={() => setIsSmileCardHovered(false)}
+              className={`absolute rounded-[10px] w-[calc(383px*0.75)] md:w-[calc(383px*0.8)] xl:w-[383px] bg-no-repeat aspect-[3/3.7] hover:z-20 md:hover:rotate-[27deg] transition-[transform_background] duration-200 top-[25%] md:top-[32.5%] xl:top-[22.5%] left-[10rem] rotate-[30deg] ${isNichakarnCardHovered ? "md:rotate-[27deg]" : ""}`}
+              style={{
+                backgroundImage: `url(${
+                  isSmileCardHovered ? smileCard.src : emptySmileCard.src
+                })`,
+                backgroundSize: "100% 100%",
+              }}
+            />
+          </div>
+        </div>
+        <div className="xl:w-[60%] font-bold uppercase flex flex-col gap-4 xl:items-end justify-end xl:justify-between h-full">
+          <div className="relative md:self-end">
+            <Star className="size-10 md:size-12 xl:size-[100px] absolute -top-[70%] xl:top-[70%] left-[5%] md:left-auto sm:right-[100%]" />
+            <Star className="size-6 xl:size-8 absolute bottom-[160%] xl:top-[210%] right-[95%]" />
+            <Saimaii className="w-[200px] md:w-auto" />
+            <Star className="size-5 absolute -top-6 -right-10" />
+          </div>
+          <h1 className="text-[clamp(1.7rem,5vw,4.5rem)] leading-tight">
+            nichakarn
+            <br />
+            <span className="relative">
+              soontornsuteewong
+              <Star className="size-5 xl:size-10 absolute top-1/2 -translate-y-1/2 left-[calc(100%+1rem)]" />
+            </span>
+          </h1>
         </div>
       </div>
     </section>
   );
 };
-
-// Styled components
-const MainContainer = styled.div`
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  max-width: 200px;
-  max-height: 250px;
-  left: 5rem;
-  top: -8rem;
-  filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.04));
-  border-radius: 10px;
-  z-index: 2;
-
-  &.second-container {
-    z-index: 1;
-    transform: rotate(30deg);
-    left: 18rem;
-    top: -3rem;
-  }
-
-  @media (max-width: 768px) {
-    width: 150px;
-    height: 200px;
-    left: 2rem;
-    top: 8rem;
-
-    &.second-container {
-      left: 8.725rem;
-      top: 12rem;
-      transform: rotate(30deg);
-    }
-  }
-`;
-
-const PolaroidFrame = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  min-width: 300px;
-  min-height: 360px;
-  left: 0px;
-  top: 1px;
-  background: #ffffff;
-  box-shadow: 0px 0px 21.9258px rgba(0, 0, 0, 0.1);
-  border-radius: 7px;
-  @media (max-width: 768px) {
-    min-width: 200px;
-    min-height: 260px;
-  }
-`;
-
-const InnerFrame = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 15px;
-  gap: 8px;
-  width: 100%;
-  height: 100%;
-`;
-
-const PictureFrame = styled.div`
-  width: 100%;
-  height: 100%;
-  max-width: 270.72px;
-  max-height: 270.43px;
-  background: #d7d7d7;
-  transition: background-image 0.3s ease-in-out;
-
-  &:hover {
-    background: url("/mean.svg") center center / cover no-repeat;
-  }
-  &.second-picture-frame:hover {
-    background: url("/mean2.svg") center center / cover no-repeat;
-  }
-`;
 
 export default Hero;

@@ -36,7 +36,7 @@ const Header = () => {
         <div className="max-w-[1520px] mx-auto bg-white h-full flex items-center justify-between">
           {/* Logo */}
           <Link href="/">
-            <h1 className="text-4xl uppercase font-extrabold text-black">
+            <h1 className="text-2xl md:text-3xl xl:text-4xl uppercase font-extrabold text-black">
               meansaimaii
             </h1>
           </Link>
@@ -46,7 +46,7 @@ const Header = () => {
               <Link
                 key={item.text}
                 href={item.href}
-                className={`${item.href === pathname ? "text-[#6E2D27] font-black" : "text-black"} text-center bg-white duration-200 transition-colors hover:text-[#C2665D]`}
+                className={`${item.href === pathname ? "text-primary font-black" : "text-black"} text-center bg-white duration-200 transition-colors hover:text-[#C2665D]`}
               >
                 {item.text}
               </Link>
@@ -61,7 +61,7 @@ const Header = () => {
                 key={item.text}
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className={`${item.href === pathname ? "text-[#6E2D27] font-black" : "text-black"} text-center bg-white w-full p-6 duration-200 transition-colors hover:text-[#C2665D]`}
+                className={`${item.href === pathname ? "text-primary font-black" : "text-black"} text-center bg-white w-full p-6 duration-200 transition-colors hover:text-[#C2665D]`}
               >
                 {item.text}
               </Link>
