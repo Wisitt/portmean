@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { Saimaii, Star } from "../../../public/icon/fistmean";
+import { Star } from "../../../public/icon/fistmean";
 import emptyNichakarnCard from "../../assets/empty-nichakarn-card.jpg";
 import emptySmileCard from "../../assets/empty-smile-card.jpg";
 import nichakarnCard from "../../assets/nichakarn-card.jpg";
@@ -34,7 +34,7 @@ const Hero = () => {
             <div
               onMouseEnter={() => setIsNichakarnCardHovered(true)}
               onMouseLeave={() => setIsNichakarnCardHovered(false)}
-              className={`relative z-10 rounded-[10px] w-[calc(383px*0.75)] md:w-[calc(383px*0.9)] xl:w-[383px] bg-no-repeat aspect-[3/3.7] md:hover:-rotate-3 transition-[transform_background] duration-200 ${isSmileCardHovered ? "md:-rotate-3" : ""}`}
+              className={`relative drop-shadow-[0_2.97px_11.13px_rgba(0,0,0,0.04)] z-10 rounded-[10px] w-[calc(383px*0.75)] md:w-[calc(383px*0.9)] xl:w-[383px] bg-no-repeat aspect-[3/3.7] md:hover:-rotate-3 transition-[transform_background] duration-200 ${isSmileCardHovered ? "md:-rotate-3" : ""}`}
               style={{
                 backgroundImage: `url(${
                   isNichakarnCardHovered
@@ -47,7 +47,7 @@ const Hero = () => {
             <div
               onMouseEnter={() => setIsSmileCardHovered(true)}
               onMouseLeave={() => setIsSmileCardHovered(false)}
-              className={`absolute rounded-[10px] w-[calc(383px*0.75)] md:w-[calc(383px*0.8)] xl:w-[383px] bg-no-repeat aspect-[3/3.7] hover:z-20 md:hover:rotate-[27deg] transition-[transform_background] duration-200 top-[25%] md:top-[32.5%] xl:top-[22.5%] left-[10rem] rotate-[30deg] ${isNichakarnCardHovered ? "md:rotate-[27deg]" : ""}`}
+              className={`absolute drop-shadow-[0_2.97px_11.13px_rgba(0,0,0,0.04)] rounded-[10px] w-[calc(383px*0.75)] md:w-[calc(383px*0.8)] xl:w-[383px] bg-no-repeat aspect-[3/3.7] hover:z-20 md:hover:rotate-[27deg] transition-[transform_background] duration-200 top-[25%] md:top-[32.5%] xl:top-[22.5%] left-[10rem] rotate-[30deg] ${isNichakarnCardHovered ? "md:rotate-[27deg]" : ""}`}
               style={{
                 backgroundImage: `url(${
                   isSmileCardHovered ? smileCard.src : emptySmileCard.src
@@ -57,12 +57,14 @@ const Hero = () => {
             />
           </div>
         </div>
-        <div className="xl:w-[60%] font-bold uppercase flex flex-col gap-4 xl:items-end justify-end xl:justify-between h-full">
-          <div className="relative md:self-end">
+        <div className="xl:w-[60%] font-bold uppercase flex flex-col gap-4 items-start xl:items-end justify-end xl:justify-between h-full">
+          <div className="relative inline md:self-end">
             <Star className="size-10 md:size-12 xl:size-[100px] absolute -top-[70%] xl:top-[70%] left-[5%] md:left-auto sm:right-[100%]" />
-            <Star className="size-6 xl:size-8 absolute bottom-[160%] xl:top-[210%] right-[95%]" />
-            <Saimaii className="w-[200px] md:w-auto" />
-            <Star className="size-5 absolute -top-6 -right-10" />
+            <Star className="size-6 xl:size-8 absolute bottom-[160%] xl:top-[180%] right-[95%]" />
+            <span className="text-stroke text-stroke-white text-transparent font-black text-6xl md:text-[80px]">
+              SAIMAII
+            </span>
+            <Star className="size-5 absolute -top-3 -right-6" />
           </div>
           <h1 className="text-[clamp(1.7rem,5vw,4.5rem)] leading-tight">
             nichakarn

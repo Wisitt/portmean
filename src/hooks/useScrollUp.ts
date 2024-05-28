@@ -7,7 +7,7 @@ export const useScrollUp = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrollUp(window.scrollY <= scrollY.current);
+      setIsScrollUp(window.scrollY <= 68 || window.scrollY <= scrollY.current);
       scrollY.current = window.scrollY;
     };
 
