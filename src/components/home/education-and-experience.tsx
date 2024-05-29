@@ -21,6 +21,24 @@ const EducationAndExperience = () => {
 
   return (
     <section
+      onClick={(e) => {
+        if (step === "end") {
+          const target = e.target as HTMLElement;
+          if (option === "education") {
+            if (!document.getElementById("end-card")?.contains(target)) {
+              setOption("");
+            }
+          } else {
+            if (
+              !document.getElementById("end-card")?.contains(target) &&
+              !document.getElementById("experience-navigator")?.contains(target)
+            ) {
+              setOption("");
+              setActiveExperience(1);
+            }
+          }
+        }
+      }}
       className="overflow-hidden h-screen bg-blend-multiply py-20 px-4"
       style={{
         background: `#272727 url(${noiseImg.src})`,
@@ -37,6 +55,7 @@ const EducationAndExperience = () => {
           {step === "end" && (
             <div className="flex h-full z-10">
               <motion.div
+                id="end-card"
                 initial={{
                   opacity: 0,
                 }}
@@ -69,6 +88,7 @@ const EducationAndExperience = () => {
                           EDUCATION
                         </h4>
                         <Image
+                          draggable={false}
                           className="absolute mix-blend-multiply group-hover:opacity-0 opacity-[0.03] left-0 z-20 h-full"
                           src={noiseImg}
                           alt="noise"
@@ -88,6 +108,7 @@ const EducationAndExperience = () => {
                           EXPERIENCE
                         </h4>
                         <Image
+                          draggable={false}
                           className="absolute mix-blend-multiply group-hover:opacity-0 opacity-[0.03] left-0 z-20 h-full"
                           src={noiseImg}
                           alt="noise"
