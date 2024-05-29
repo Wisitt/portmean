@@ -5,6 +5,13 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    container: {
+      center: true,
+      padding: "1rem",
+      screens: {
+        lg: "1520px",
+      },
+    },
     extend: {
       colors: {
         primary: "#6E2D27",

@@ -18,6 +18,10 @@ const Header = () => {
     setIsMenuOpen((prev) => !prev);
   };
 
+  const isActiveMenu = (href: string) => {
+    return href === pathname || (href !== "/" && pathname.startsWith(href));
+  };
+
   return (
     <>
       {/* Overlay for Navigation Mobile */}
@@ -46,7 +50,7 @@ const Header = () => {
               <Link
                 key={item.text}
                 href={item.href}
-                className={`${item.href === pathname ? "text-primary font-black" : "text-black"} text-center bg-white duration-200 transition-colors hover:text-[#C2665D]`}
+                className={`${isActiveMenu(item.href) ? "text-primary font-black" : "text-black"} text-center bg-white duration-200 transition-colors hover:text-[#C2665D]`}
               >
                 {item.text}
               </Link>
@@ -61,7 +65,7 @@ const Header = () => {
                 key={item.text}
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className={`${item.href === pathname ? "text-primary font-black" : "text-black"} text-center bg-white w-full p-6 duration-200 transition-colors hover:text-[#C2665D]`}
+                className={`${isActiveMenu(item.href) ? "text-primary font-black" : "text-black"} text-center bg-white w-full p-6 duration-200 transition-colors hover:text-[#C2665D]`}
               >
                 {item.text}
               </Link>

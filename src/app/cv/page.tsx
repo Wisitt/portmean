@@ -11,8 +11,8 @@ import cvImg from "@/assets/cv.jpg";
 const Cv = () => {
   return (
     <>
-      <div className="h-svh pt-[calc(68px)] px-4 overflow-hidden">
-        <div className="max-w-[1520px] mx-auto gap-4 w-full h-full flex items-center">
+      <div className="h-svh pt-[68px] px-4 overflow-hidden">
+        <div className="max-w-[1520px] relative mx-auto gap-4 w-full h-full flex items-center">
           <div className="w-full max-w-[496px]">
             <div className="relative">
               <Image className="w-full" src={meInCv} alt="me in cv" />
@@ -33,7 +33,7 @@ const Cv = () => {
               />
             </div>
             <Image
-              className="absolute top-0 left-0"
+              className="absolute top-0 -left-[169px]"
               src={oldTelephoneImg}
               alt="old telephone"
             />
@@ -46,12 +46,12 @@ const Cv = () => {
               alt="shark"
             />
           </div>
-          <Image
-            className="absolute right-0 top-full -translate-y-[calc(608px/2+80px)]"
-            src={flowerImg}
-            alt="flower"
-          />
         </div>
+        <Image
+          className="absolute right-0 top-full -translate-y-[calc(608px/2+80px)]"
+          src={flowerImg}
+          alt="flower"
+        />
       </div>
       <Image className="my-[68px] px-4 mx-auto" src={cvImg} alt="cv" />
     </>
