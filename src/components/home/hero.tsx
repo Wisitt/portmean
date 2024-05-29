@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
-import { Star } from "../../../public/icon/fistmean";
-import emptyNichakarnCard from "../../assets/empty-nichakarn-card.jpg";
-import emptySmileCard from "../../assets/empty-smile-card.jpg";
-import nichakarnCard from "../../assets/nichakarn-card.jpg";
-import smileCard from "../../assets/smile-card.jpg";
-import Subtract from "../icons/subtract";
+import Star from "@/components/icons/star";
+import smileCard from "@/assets/smile-card.jpg";
+import Subtract from "@/components/icons/subtract";
+import nichakarnCard from "@/assets/nichakarn-card.jpg";
+import emptySmileCard from "@/assets/empty-smile-card.jpg";
+import emptyNichakarnCard from "@/assets/empty-nichakarn-card.jpg";
 
 const Hero = () => {
   const [isNichakarnCardHovered, setIsNichakarnCardHovered] = useState(false);
