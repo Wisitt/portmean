@@ -17,14 +17,14 @@ const Architect = () => {
         <div className="max-w-[400px] w-full">
           <Image src={structureImg} alt="structure" />
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center gap-12">
           <h2 className="flex-col gap-5 flex">
             ARCHITECTURE
             <span className="ml-52 flex gap-5 text-primary">
               & <span className="text-black">INTERIOR</span>
             </span>
           </h2>
-          <div className="grid gap-4 mt-12 grid-cols-4 grid-rows-2">
+          <div className="grid gap-4 grid-cols-4 grid-rows-2">
             {sampleImgs.map((sampleImg, i) => (
               <Image key={i} src={sampleImg} alt={`sample ${i + 1}`} />
             ))}
