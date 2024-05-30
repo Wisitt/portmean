@@ -10,7 +10,7 @@ import cvImg from "@/assets/cv.jpg";
 
 const Cv = () => {
   return (
-    <>
+    <main>
       <div className="h-svh pt-[68px] px-4 overflow-hidden">
         <div className="max-w-[1520px] relative mx-auto gap-4 w-full h-full flex items-center">
           <div className="w-full max-w-[496px]">
@@ -54,7 +54,7 @@ const Cv = () => {
         />
       </div>
       <Image className="my-[68px] px-4 mx-auto" src={cvImg} alt="cv" />
-    </>
+    </main>
   );
 };
 

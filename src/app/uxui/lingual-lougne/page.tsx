@@ -11,7 +11,7 @@ const LingualLougne = () => {
   const isScrollUp = useScrollUp();
 
   return (
-    <div className="px-4 pt-[68px]">
+    <main className="px-4 pt-[68px]">
       <div className="container relative flex flex-col items-center">
         <motion.div
           initial={{
@@ -50,7 +50,7 @@ const LingualLougne = () => {
           <Image key={i} src={img} alt={"lingual lougne " + (i + 1)} />
         ))}
       </div>
-    </div>
+    </main>
   );
 };
 

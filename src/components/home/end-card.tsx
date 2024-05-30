@@ -22,6 +22,7 @@ const EndCard = ({
 }) => {
   return (
     <motion.div
+      data-lenis-prevent
       id="end-card"
       initial={{
         opacity: 0,

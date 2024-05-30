@@ -1,34 +1,24 @@
 "use client";
 
+import Link from "next/link";
+import { useState } from "react";
+import { useLenis } from "lenis/react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
 
 const ScrollToTop = () => {
   const [isShow, setIsShow] = useState(false);
+  const lenis = useLenis((lenis) => {
+    setIsShow(lenis.scroll >= window.innerHeight);
+  });
 
-  const handleScrollToTop = () => {
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    });
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsShow(window.scrollY >= window.innerHeight);
-    };
-
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const MotionLink = motion(Link);
 
   return (
     <AnimatePresence>
       {isShow && (
-        <motion.button
-          onClick={handleScrollToTop}
+        <MotionLink
+          href="#top"
+          onClick={() => lenis?.scrollTo("#top")}
           initial={{
             scale: 0.95,
             opacity: 0,
@@ -44,7 +34,7 @@ const ScrollToTop = () => {
             opacity: 0,
             pointerEvents: "none",
           }}
-          className="fixed bottom-8 bg-white p-4 rounded-full mix-blend-difference right-8"
+          className="fixed z-50 bottom-8 bg-white p-4 rounded-full mix-blend-difference right-8"
         >
           <svg
             className="stroke-black"
@@ -61,7 +51,7 @@ const ScrollToTop = () => {
             <path d="m5 12 7-7 7 7" />
             <path d="M12 19V5" />
           </svg>
-        </motion.button>
+        </MotionLink>
       )}
     </AnimatePresence>
   );

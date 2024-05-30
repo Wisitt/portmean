@@ -11,7 +11,7 @@ const Keef = () => {
   const isScrollUp = useScrollUp();
 
   return (
-    <div className="px-4 pt-[68px] pb-8">
+    <main className="px-4 pt-[68px] pb-8">
       <div className="container px-0 relative flex flex-col items-center">
         <motion.div
           initial={{
@@ -50,7 +50,7 @@ const Keef = () => {
           <Image key={i} src={img} alt={"keef " + (i + 1)} />
         ))}
       </div>
-    </div>
+    </main>
   );
 };
 

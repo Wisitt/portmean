@@ -15,8 +15,8 @@ const Uxui = () => {
           href="/uxui/lingual-lougne"
           className="group p-12 flex flex-col gap-[25px] items-center relative"
         >
-          <div className="h-9 overflow-hidden">
-            <div className="group-hover:-translate-y-9 transition-transform duration-200">
+          <div className="h-8 lg:h-9 overflow-hidden">
+            <div className="group-hover:-translate-y-8 lg:group-hover:-translate-y-9 transition-transform duration-200">
               <h2>WEBSITE</h2>
               <h2 className="text-[#004743]">LINGUAL LOUGNE</h2>
             </div>
@@ -47,8 +47,8 @@ const Uxui = () => {
           href="/uxui/keef"
           className="group p-12 flex flex-col gap-[25px] items-center cursor-pointer relative"
         >
-          <div className="h-9 overflow-hidden">
-            <div className="group-hover:-translate-y-9 transition-transform duration-200">
+          <div className="h-8 lg:h-9 overflow-hidden">
+            <div className="group-hover:-translate-y-8 lg:group-hover:-translate-y-9 transition-transform duration-200">
               <h2>MOBILE APPLICATION</h2>
               <h2 className="text-[#4C5C6C]">KEEF</h2>
             </div>

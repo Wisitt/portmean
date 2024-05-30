@@ -4,6 +4,7 @@ import { Lato } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import ScrollToTop from "@/components/shared/scroll-to-top";
+import SmoothScroll from "@/components/shared/smooth-scroll";
 
 const lato = Lato({ weight: ["400", "700", "900"], subsets: ["latin"] });
 
@@ -20,8 +21,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={lato.className + " bg-white"}>
+        <div id="top" className="absolute" />
         <Header />
-        <main>{children}</main>
+        <SmoothScroll>{children}</SmoothScroll>
         <ScrollToTop />
       </body>
     </html>

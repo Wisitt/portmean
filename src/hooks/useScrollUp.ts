@@ -1,20 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useLenis } from "lenis/react";
+import { useRef, useState } from "react";
 
 export const useScrollUp = () => {
   const scrollY = useRef(0);
-
+  useLenis((lenis) => {
+    setIsScrollUp(lenis.scroll <= 68 || lenis.scroll <= scrollY.current);
+    scrollY.current = lenis.scroll;
+  });
   const [isScrollUp, setIsScrollUp] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrollUp(window.scrollY <= 68 || window.scrollY <= scrollY.current);
-      scrollY.current = window.scrollY;
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return isScrollUp;
 };
