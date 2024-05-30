@@ -20,7 +20,7 @@ export const experienceList: ExperienceListItem[] = [
     typeOfEmployment: "Outsource",
     position: "Ux/Ui Designer",
     responsibilities: [
-      "Design a Conceptual forKasetfair 2023 Application",
+      "Design a Conceptual for Kasetfair 2023 Application",
       "Wireframe and User Flow",
       "Design a Story Board ”Time Capsule”",
     ],
