@@ -13,7 +13,7 @@ import {
 const Architect = () => {
   return (
     <main className="text-black py-[68px] container flex flex-col gap-[150px]">
-      <div className="h-svh flex text-5xl gap-4 justify-center font-bold items-center">
+      <div className="h-screen flex text-5xl gap-4 justify-center font-bold items-center">
         <div className="max-w-[400px] w-full">
           <Image src={structureImg} alt="structure" />
         </div>

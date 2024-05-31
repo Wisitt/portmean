@@ -9,7 +9,7 @@ import Link from "next/link";
 
 const Uxui = () => {
   return (
-    <div className="pt-[68px] min-h-svh flex flex-col justify-center">
+    <div className="pt-[68px] min-h-screen flex flex-col justify-center">
       <div className="max-w-[1520px] text-center my-4 w-full mx-auto grid lg:grid-cols-2 gap-4 text-black text-2xl lg:text-3xl font-bold">
         <Link
           href="/uxui/lingual-lougne"

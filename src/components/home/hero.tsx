@@ -24,7 +24,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="h-svh bg-primary overflow-hidden pt-[calc(68px+2.5rem)] md:pt-[calc(68px+5rem)] pb-10 md:pb-20 px-4">
+    <section className="h-screen bg-primary overflow-hidden pt-[calc(68px+2.5rem)] md:pt-[calc(68px+5rem)] pb-10 md:pb-20 px-4">
       <div className="max-w-[1520px] h-full mx-auto flex flex-col gap-10 xl:gap-0 xl:flex-row">
         <div className="xl:w-[40%] xl:pt-16 flex xl:justify-center xl:block relative">
           <div className="absolute -left-24 xl:-left-52 top-0">

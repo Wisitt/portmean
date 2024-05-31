@@ -8,7 +8,7 @@ import holdingTelevisionImg from "@/assets/holding-television.png";
 const Contact = () => {
   return (
     <div className="px-4">
-      <div className="text-black py-[68px] relative container px-0 flex justify-center h-svh flex-col">
+      <div className="text-black py-[68px] relative container px-0 flex justify-center h-screen flex-col">
         <h2 className="text-4xl font-bold mb-20">
           NICHAKARN SOONTORNSUTEEONG (MEAN)
         </h2>
