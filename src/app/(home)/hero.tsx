@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-import Star from "@/components/icons/star";
+import Star from "@/icons/star";
 import smileCard from "@/assets/smile-card.jpg";
-import Subtract from "@/components/icons/subtract";
+import Subtract from "@/icons/subtract";
 import nichakarnCard from "@/assets/nichakarn-card.jpg";
 import emptySmileCard from "@/assets/empty-smile-card.jpg";
 import emptyNichakarnCard from "@/assets/empty-nichakarn-card.jpg";

@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 
 import "./globals.css";
-import Header from "@/components/header";
-import ScrollToTop from "@/components/shared/scroll-to-top";
-import SmoothScroll from "@/components/shared/smooth-scroll";
+
+import Header from "./header";
+import ScrollToTop from "./scroll-to-top";
+import SmoothScroll from "./smooth-scroll";
 
 const lato = Lato({ weight: ["400", "700", "900"], subsets: ["latin"] });
 

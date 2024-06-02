@@ -24,7 +24,6 @@ const Header = () => {
 
   return (
     <>
-      {/* Overlay for Navigation Mobile */}
       <div
         onClick={() => setIsMenuOpen(false)}
         className={`xl:hidden bg-black/50 z-40 fixed inset-0 h-screen ease-in-out transition-opacity duration-[400ms] ${isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
@@ -38,13 +37,11 @@ const Header = () => {
         className="h-[68px] fixed w-full z-50 bg-white px-4 transition-transform duration-800"
       >
         <div className="max-w-[1520px] mx-auto bg-white h-full flex items-center justify-between">
-          {/* Logo */}
           <Link href="/">
             <h1 className="text-2xl md:text-3xl xl:text-4xl uppercase font-extrabold text-black">
               meansaimaii
             </h1>
           </Link>
-          {/* Navigation PC */}
           <nav className="w-auto hidden xl:flex items-center gap-10 uppercase text-2xl">
             {navList.map((item) => (
               <Link
@@ -56,7 +53,6 @@ const Header = () => {
               </Link>
             ))}
           </nav>
-          {/* Navigation Mobile */}
           <nav
             className={`${isMenuOpen ? "max-h-[696px]" : "max-h-0"} ease-in-out duration-[400ms] transition-[max-height] overflow-hidden flex xl:hidden flex-col fixed left-0 top-[68px] w-full items-center uppercase text-2xl`}
           >

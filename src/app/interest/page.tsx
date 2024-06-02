@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import handImg from "@/assets/hand.png";
 import foilImg from "@/assets/foil.png";
-import Woman from "@/components/icons/woman";
+import Woman from "@/icons/woman";
 import splineImg from "@/assets/interest/spline.png";
 import procreate1Img from "@/assets/interest/procreate1.png";
 import nomadImg from "@/assets/interest/nomad.png";
