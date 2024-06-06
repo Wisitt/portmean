@@ -1,15 +1,50 @@
-import { useEffect, useState } from "react";
+import { MouseEvent, useEffect } from "react";
+import { Variants, motion, useAnimation } from "framer-motion";
 
 import Star from "@/icons/star";
-import smileCard from "@/assets/smile-card.jpg";
 import Subtract from "@/icons/subtract";
+import smileCard from "@/assets/smile-card.jpg";
 import nichakarnCard from "@/assets/nichakarn-card.jpg";
 import emptySmileCard from "@/assets/empty-smile-card.jpg";
 import emptyNichakarnCard from "@/assets/empty-nichakarn-card.jpg";
 
+const createVariants = (
+  emptySrc: string,
+  showSrc: string,
+  startRotate: number,
+  zIndexEmpty: number = 0
+) =>
+  ({
+    empty: {
+      backgroundImage: `url(${emptySrc})`,
+      rotate: startRotate,
+      scale: 1,
+      zIndex: zIndexEmpty,
+    },
+    show: {
+      backgroundImage: `url(${showSrc})`,
+      rotate: startRotate - 3,
+      scale: 1.025,
+      zIndex: 2,
+    },
+  }) as Variants;
+
 const Hero = () => {
-  const [isNichakarnCardHovered, setIsNichakarnCardHovered] = useState(false);
-  const [isSmileCardHovered, setIsSmileCardHovered] = useState(false);
+  const nichakarnCardControls = useAnimation();
+  const smileCardControls = useAnimation();
+
+  const nichakarnCardVariants = createVariants(
+    emptyNichakarnCard.src,
+    nichakarnCard.src,
+    0,
+    1
+  );
+
+  const smileCardVariants = createVariants(
+    emptySmileCard.src,
+    smileCard.src,
+    30
+  );
 
   const preloadImages = () => {
     const images = [nichakarnCard.src, smileCard.src];
@@ -19,41 +54,49 @@ const Hero = () => {
     });
   };
 
+  const handleClick = async (e: MouseEvent) => {
+    const target = e.target as HTMLDivElement;
+
+    nichakarnCardControls.start("empty");
+    smileCardControls.start("empty");
+
+    if (target.id === "smile-card") {
+      smileCardControls.start("show");
+    } else if (target.id === "nichakarn-card") {
+      nichakarnCardControls.start("show");
+    }
+  };
+
   useEffect(() => {
     preloadImages();
   }, []);
 
   return (
-    <section className="h-screen bg-primary overflow-hidden pt-[calc(68px+2.5rem)] md:pt-[calc(68px+5rem)] pb-10 md:pb-20 px-4">
-      <div className="max-w-[1520px] h-full mx-auto flex flex-col gap-10 xl:gap-0 xl:flex-row">
+    <section
+      onClick={handleClick}
+      className="h-screen bg-primary overflow-hidden pt-[calc(68px+2.5rem)] md:pt-[calc(68px+5rem)] pb-10 md:pb-20 px-4"
+    >
+      <div className="container h-full flex flex-col gap-10 xl:gap-0 xl:flex-row">
         <div className="xl:w-[40%] xl:pt-16 flex xl:justify-center xl:block relative">
           <div className="absolute -left-24 xl:-left-52 top-0">
             <Subtract />
           </div>
-          <div className="relative">
-            <div
-              onMouseEnter={() => setIsNichakarnCardHovered(true)}
-              onMouseLeave={() => setIsNichakarnCardHovered(false)}
-              className={`relative drop-shadow-[0_2.97px_11.13px_rgba(0,0,0,0.04)] z-10 rounded-[10px] w-[calc(383px*0.75)] md:w-[calc(383px*0.9)] xl:w-[383px] bg-no-repeat aspect-[3/3.7] md:hover:-rotate-3 transition-[transform_background] duration-200 ${isSmileCardHovered ? "md:-rotate-3" : ""}`}
-              style={{
-                backgroundImage: `url(${
-                  isNichakarnCardHovered
-                    ? nichakarnCard.src
-                    : emptyNichakarnCard.src
-                })`,
-                backgroundSize: "100% 100%",
-              }}
+          <div className="relative *:bg-contain *:drop-shadow-[0_2.97px_11.13px_rgba(0,0,0,0.04)] *:transition-[background-image] *:aspect-[3/3.7] *:rounded-[10px] *:w-[calc(383px*0.75)] *:md:w-[calc(383px*0.9)] *:xl:w-[383px]">
+            <motion.div
+              id="nichakarn-card"
+              variants={nichakarnCardVariants}
+              className="relative"
+              initial="empty"
+              whileHover="show"
+              animate={nichakarnCardControls}
             />
-            <div
-              onMouseEnter={() => setIsSmileCardHovered(true)}
-              onMouseLeave={() => setIsSmileCardHovered(false)}
-              className={`absolute drop-shadow-[0_2.97px_11.13px_rgba(0,0,0,0.04)] rounded-[10px] w-[calc(383px*0.75)] md:w-[calc(383px*0.8)] xl:w-[383px] bg-no-repeat aspect-[3/3.7] hover:z-20 md:hover:rotate-[27deg] transition-[transform_background] duration-200 top-[25%] md:top-[32.5%] xl:top-[22.5%] left-[10rem] rotate-[30deg] ${isNichakarnCardHovered ? "md:rotate-[27deg]" : ""}`}
-              style={{
-                backgroundImage: `url(${
-                  isSmileCardHovered ? smileCard.src : emptySmileCard.src
-                })`,
-                backgroundSize: "100% 100%",
-              }}
+            <motion.div
+              id="smile-card"
+              variants={smileCardVariants}
+              className="absolute left-[10rem] top-[25%] md:top-[32.5%] xl:top-[22.5%]"
+              initial="empty"
+              whileHover="show"
+              animate={smileCardControls}
             />
           </div>
         </div>
